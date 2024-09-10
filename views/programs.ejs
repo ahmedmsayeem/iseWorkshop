@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+</head>
+<body>
+
+    <img src="../public/pStructure.png" alt="">
+    <%= data%>
+   
+
+
+
+        <% for( let item of programs ) { %>
+            <div class="program-widget" >
+                <h2>
+                    <%= item.program %>
+                </h2>
+                <p>
+                    <%= item.brief %>
+                </p>
+                <!-- <span class="material-symbols-outlined" id="copyButton" title="copy!">
+                    content_copy    
+                </span> -->
+                
+                <% if (item.codeSnippet!="" ) { %>
+                    <div class="prgout" id="prgout">  
+                        <pre><code class="language-javascript">
+                           <%= item.codeSnippet %>
+                           </code></pre> 
+                    </div>
+                <% } %>
+               
+                
+                
+                
+
+                <% if (item.conceptual_summary!="" ) { %>
+                    <div class="Summary">
+                        <p >Conceptual Summary:</p>
+                        <p>
+                            <%= item.conceptual_summary %>
+                        </p>
+                    <% } %>
+                
+            
+           
+            </a></div>
+            
+            </div>
+        
+            <% } %>
+        
+</body>
+</html>
