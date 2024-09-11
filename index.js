@@ -9,13 +9,13 @@ const data2=require('./data/2.json')
 // Define the directory where your HTML files (views) are located
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
+app.use(express.static(path.join(__dirname, "public")));
 
 
 
 
 app.get("/",(req,res)=>{
     console.log("u tried to access / ")
-    
     res.render('index',{data:"any data we can send from backend to frontend"})
 
 })
