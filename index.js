@@ -2,8 +2,8 @@ const express = require('express')
 const app = express()
 const path = require('path');
 const PORT=3000;
-hljs = require('highlight.js/lib/common');
-const data = require('./data/1.json');
+const data1 = require('./data/1.json');
+const data2=require('./data/2.json')
 
 
 // Define the directory where your HTML files (views) are located
@@ -15,8 +15,6 @@ app.set('views', path.join(__dirname, 'views'));
 
 app.get("/",(req,res)=>{
     console.log("u tried to access / ")
-    // res.send("Good morning brother")
-    console.log(data)
     
     res.render('index',{data:"any data we can send from backend to frontend"})
 
@@ -26,14 +24,14 @@ app.get("/",(req,res)=>{
 app.get("/1",(req,res)=>{
     
    
-    res.render('programs',{data:"1",hljs,programs:data})
+    res.render('programs',{data:"1",programs:data1})
 
 })
 
 app.get("/2",(req,res)=>{
     
    
-    res.render('programs',{data:"2"})
+    res.render('programs',{data:"2",programs:data2})
 
 })
 app.get("/3",(req,res)=>{

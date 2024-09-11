@@ -1,0 +1,28 @@
+
+
+[
+    {
+        "program": "Express Server with EJS Example",
+        "brief": "Create an Express server with routes for rendering HTML using EJS and passing data to the frontend.",
+        "codeSnippet": "\nconst express = require('express');\nconst app = express();\nconst path = require('path');\nconst PORT = 3000;\nconst data = require('./data/1.json');\n\n// Set up EJS as the view engine\napp.set('view engine', 'ejs');\napp.set('views', path.join(__dirname, 'views'));\n\n// Route for the home page\napp.get('/', (req, res) => {\n    console.log('Attempted to access /');\n    res.render('index', { data: 'any data we can send from backend to frontend' });\n});\n\n// Route for rendering a page with programs data\napp.get('/1', (req, res) => {\n    res.render('programs', { data: '1', programs: data });\n});\n\n// Start the server\napp.listen(PORT, () => {\n    console.log('Listening at port 3000 of computer');\n});",
+        "conceptual_summary": "This example demonstrates setting up an Express server using EJS as the templating engine. The server renders HTML files with EJS and passes data from the backend to the frontend. The home route logs a message and renders the 'index' view with a data object. The '/1' route renders the 'programs' view, passing program data from a JSON file to the template. This setup allows dynamic data rendering on the frontend using EJS templates."
+    }
+    ,    
+    {
+        "program": "Express Server with EJS and Multiple Routes",
+        "brief": "Set up an Express server with EJS to render views with data passed from the backend, including multiple routes handling different datasets.",
+        "codeSnippet": "\nconst express = require('express');\nconst app = express();\nconst path = require('path');\nconst PORT = 3000;\n\n// Import JSON data for each route\nconst data1 = require('./data/1.json');\nconst data2 = require('./data/2.json');\nconst data3 = require('./data/3.json');\n\n// Set up EJS as the view engine\napp.set('view engine', 'ejs');\napp.set('views', path.join(__dirname, 'views'));\n\n// Route for the home page\napp.get('/', (req, res) => {\n    console.log('Attempted to access /');\n    res.render('index', { data: 'any data we can send from backend to frontend' });\n});\n\n// Route 1: Render 'programs' view with data1\napp.get('/1', (req, res) => {\n    res.render('programs', { data: '1', programs: data1 });\n});\n\n// Route 2: Render 'programs' view with data2\napp.get('/2', (req, res) => {\n    res.render('programs', { data: '2', programs: data2 });\n});\n\n// Route 3: Render 'programs' view with data3\napp.get('/3', (req, res) => {\n    res.render('programs', { data: '3', programs: data3 });\n});\n\n// Start the server\napp.listen(PORT, () => {\n    console.log(`Listening at port ${PORT} of computer`);\n});",
+        "conceptual_summary": "This example demonstrates an Express server setup using EJS for rendering views with dynamic data. It includes multiple routes ('/1', '/2', and '/3') each serving different datasets imported as JSON files. The home route renders an 'index' view with a simple data object, while each additional route renders the 'programs' view with respective datasets (`data1`, `data2`, `data3`). This setup allows for structured routing and dynamic content delivery from the backend to the frontend using EJS templates."
+    }
+    ,
+    {
+        "program": "",
+        "brief": "Add place to get the coding data",
+        "codeSnippet": "",
+        "conceptual_summary": ""
+    }
+    
+
+    
+    
+]
