@@ -4,6 +4,7 @@ const path = require('path');
 const PORT=3000;
 const data1 = require('./data/1.json');
 const data2=require('./data/2.json')
+const data3=require('./data/3.json')
 
 
 // Define the directory where your HTML files (views) are located
@@ -37,7 +38,7 @@ app.get("/2",(req,res)=>{
 app.get("/3",(req,res)=>{
     
    
-    res.render('programs',{data:"3"})
+    res.render('programs',{data:"3",programs:data3})
 
 })
 

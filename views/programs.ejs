@@ -7,22 +7,23 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
     <script>hljs.highlightAll();</script>
-   
-      
     <link rel="stylesheet" href="/programstyle.css">
 </head>
 <body>
     <img src="/pStructure.png" alt="Program Structure">
     <%= data %>
 
+    <% let i = 0; %> <!-- Initialize i once before the loop -->
     <% for (let item of programs) { %>
         <div class="program-widget">
             <h2><%= item.program %></h2>
             <p><%= item.brief %></p>
 
             <% if (item.codeSnippet !== "") { %>
+                <% const currentId = i++; %> <!-- Increment i and store the value in currentId -->
                 <div class="prgout">
-                    <pre><code class="language-javascript"><%= item.codeSnippet %></code></pre>
+                    <button onclick="ourCopyFunction('<%= currentId %>')">Copy text</button>
+                    <pre><code class="language-javascript" id="<%= currentId %>"><%= item.codeSnippet %></code></pre>
                 </div>
             <% } %>
 
@@ -34,5 +35,7 @@
             <% } %>
         </div>
     <% } %>
+
+    <script src="/copyLogic.js"></script>
 </body>
 </html>
