@@ -2,28 +2,23 @@
 
 [
     {
-        "program": "Express Server Example",
+        "program": "1. Express Server Example",
         "brief": "Create an Express server with routes for serving HTML files and handling JSON input.",
-        "codeSnippet": "\nconst express = require('express');\nconst app = express();\nconst path = require('path');\nconst PORT = 3000;\n\n// Middleware to parse incoming JSON requests\napp.use(express.json());\n\napp.get('/', (req, res) => {\n    console.log('This is the home page');\n    res.send('This is the home page');\n});\n\n// Serve static HTML files\napp.get('/renderHtml', (req, res) => {\n    res.sendFile(path.join(__dirname, 'views', 'index.html'));\n});\n\n// Route to handle JSON input and respond with JSON data\napp.post('/program', (req, res) => {\n    const programData = req.body;\n    res.json(programData);\n});\n\napp.listen(PORT, () => {\n    console.log('Listening at port 3000 of computer');\n});",
-        "conceptual_summary": "This Express server demonstrates how to set up routes for serving static HTML and handling JSON input. The middleware 'express.json()' is used to parse JSON requests. The server includes a home route that logs to the console and sends a simple text response, a route to serve HTML files, and a route to handle POST requests with JSON data, responding back with the same data."
+        "codeSnippet": "\nconst express = require('express');\nconst app = express();\nconst path = require('path');\nconst PORT = 3000;\n\n\napp.get('/', (req, res) => {\n    console.log('This is the home page');\n    res.send('This is the home page');\n});\n\n// Serve static HTML files\napp.get('/renderHtml', (req, res) => {\n    res.sendFile(path.join(__dirname, 'views', 'index.html'));\n});\n\napp.listen(PORT, () => {\n    console.log('Listening at port 3000 of computer');\n});",
+        "conceptual_summary": "This Express server demonstrates one way to connect frontend and backend by rendering HTML files. When a specific route is requested, such as /renderHtml, the server sends an HTML file to the browser. This setup illustrates a basic method for serving static content from the backend."
     },    
+    
     {
-        "program": "Express Server Example",
-        "brief": "Create an Express server with routes for serving HTML files and handling JSON input.",
-        "codeSnippet": "\nconst express = require('express');\nconst app = express();\nconst path = require('path');\nconst PORT = 3000;\n\n// Middleware to parse incoming JSON requests\napp.use(express.json());\n\napp.get('/', (req, res) => {\n    console.log('This is the home page');\n    res.send('This is the home page');\n});\n\n// Serve static HTML files\napp.get('/renderHtml', (req, res) => {\n    res.sendFile(path.join(__dirname, 'views', 'index.html'));\n});\n\n// Route to handle JSON input and respond with JSON data\napp.post('/program', (req, res) => {\n    const programData = req.body;\n    res.json(programData);\n});\n\napp.listen(PORT, () => {\n    console.log('Listening at port 3000 of computer');\n});",
-        "conceptual_summary": "This Express server demonstrates how to set up routes for serving static HTML and handling JSON input. The middleware 'express.json()' is used to parse JSON requests. The server includes a home route that logs to the console and sends a simple text response, a route to serve HTML files, and a route to handle POST requests with JSON data, responding back with the same data."
-    },
-    {
-        "program": "",
-        "brief": "Set up an Express server that uses EJS for templating, serves static HTML files, and includes routes for rendering views.",
-        "codeSnippet": "",
-        "conceptual_summary": ""
-    },
-    {
-        "program": "Express Server with EJS",
+        "program": "2. Express Server with EJS",
         "brief": "Set up an Express server that uses EJS for templating, serves static HTML files, and includes routes for rendering views.",
         "codeSnippet": "\nconst express = require('express');\nconst app = express();\nconst path = require('path');\nconst PORT = 3000;\n\napp.set('view engine', 'ejs');\napp.set('views', path.join(__dirname, 'views'));\n\napp.get('/', (req, res) => {\n    console.log('This is the home page');\n    res.send('This is the home page');\n});\n\n// Serve static HTML files\napp.get('/renderHtml', (req, res) => {\n    res.sendFile(path.join(__dirname, 'views', 'index.html'));\n});\n\napp.get('/1', (req, res) => {\n    res.render('index');\n});\n\napp.listen(PORT, () => {\n    console.log('Listening at port 3000 of computer');\n});",
-        "conceptual_summary": "This Express server is configured to use EJS (Embedded JavaScript) as its templating engine, which allows the server to render dynamic HTML pages by injecting data into EJS templates. The server has routes for serving a basic home page, rendering static HTML files, and rendering EJS views. EJS is used because it provides a simple and effective way to create HTML templates with embedded JavaScript, making it easier to generate dynamic content on the server side. This setup is particularly useful when you need to render views that adapt based on user data or application state."
+        "conceptual_summary": "This Express server uses EJS for dynamic HTML rendering, allowing server-side generation of pages with embedded JavaScript. Basically using same html page to show different data.\n\nIt is simple html with .ejs as extension and a way to use js logic directly in html."
+    },
+    {
+        "program": "3. Setup static files (ignore for now)",
+        "brief": "Setup option to feed static files, .js and .css from public folder",
+        "codeSnippet": "app.use(express.static(path.join(__dirname, 'public')));",
+        "conceptual_summary": ""
     }
     
     
