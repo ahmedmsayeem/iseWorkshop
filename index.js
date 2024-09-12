@@ -5,6 +5,7 @@ const PORT=3000;
 const data1 = require('./data/1.json');
 const data2=require('./data/2.json')
 const data3=require('./data/3.json')
+const homeEjs=require('./data/ejs.json')
 
 
 // Define the directory where your HTML files (views) are located
@@ -43,10 +44,22 @@ app.get("/3",(req,res)=>{
 })
 
 
+app.get("/data1",(req,res)=>{
+    res.send(data1);
+})
+app.get("/data2",(req,res)=>{
+    res.send(data2);
+})
+app.get("/data3",(req,res)=>{
+    res.send(data3);
+})
+
+app.get("/ejsData",(req,res)=>{
+    res.send(homeEjs);
+})
+
 
 app.get("/skibidi",(req,res)=>{
-    console.log("u tried to access /skibidi ")
-    // res.send("Good morning rizzlord ohio")
     res.sendFile(path.join(__dirname,'views','index.html'))
 
 })
