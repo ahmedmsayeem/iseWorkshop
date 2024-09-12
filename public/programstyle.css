@@ -12,7 +12,7 @@ h2 {
     margin-bottom: 10px;
 }
 
-.program-widget {
+.program-widget,.download {
     background-color: #1e1e1e;
     border: 1px solid #444;
     border-radius: 8px;

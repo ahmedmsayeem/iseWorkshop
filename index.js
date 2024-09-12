@@ -33,7 +33,7 @@ app.get("/1",(req,res)=>{
 app.get("/2",(req,res)=>{
     
    
-    res.render('programs',{data:"2",programs:data2})
+    res.render('programs',{data:"2",programs:data2,homeEjs:homeEjs})
 
 })
 app.get("/3",(req,res)=>{
@@ -52,10 +52,6 @@ app.get("/data2",(req,res)=>{
 })
 app.get("/data3",(req,res)=>{
     res.send(data3);
-})
-
-app.get("/ejsData",(req,res)=>{
-    res.send(homeEjs);
 })
 
 

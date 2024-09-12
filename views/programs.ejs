@@ -11,7 +11,38 @@
 </head>
 <body>
     <h3><a href="/">Back Home</a></h3>
-    <img src="/pStructure.png" alt="Program Structure">
+    
+    <% if (data==1) { %>
+
+        <img src="/pStructure.png" alt="Codebase Structure">
+    <% } %>
+
+    <% if (data==3) { %>
+
+        <img src="/finalStructure.png" alt="Final Codebase Structure">
+    <% } %>
+    
+    <% if (data==2) { %>
+        
+        <div style="margin: 50px; display: flex;  text-align: center; " class="download"> 
+    
+        <div style="flex:1">
+         <h2>/data content</h2>
+         <a href="/data1" target="_blank"><p>copy 1.json</p></a>
+         <a href="/data2" target="_blank"><p>copy 2.json</p></a>
+         <a href="/data3" target="_blank"><p>copy 3.json</p></a>
+        </div>
+         
+         <div style="flex:1">
+         <h2>home page ejs file</h2>
+         <a onclick="ourCopyFunction('homeEjs')"><p>copy index.ejs</p></a>
+         
+            
+            <pre style="visibility: hidden; height: 0;"><code class="language-javascript" id="homeEjs"><%= homeEjs.script%></code></pre>
+        </div>
+
+        </div> 
+        <% } %>
     
     <% let i = 0; %> <!-- Initialize i once before the loop -->
     <% for (let item of programs) { %>
@@ -36,17 +67,10 @@
         </div>
     <% } %>
 
-    <% if (data==2) { %>
-     <h2>/data content</h2>
-     <a href="/data1" target="_blank"><p>copy 1.json</p></a>
-     <a href="/data2" target="_blank"><p>copy 2.json</p></a>
-     <a href="/data3" target="_blank"><p>copy 3.json</p></a>
-     <br>
-     <h2>home page ejs file</h2>
-     <a href="/" target="_blank"><p>copy index.ejs</p></a>
-     
-    <% } %>
+   
 
-    <script src="/copyLogic.js"></script>
+    <script src="/copyLogic.js">
+
+    </script>
 </body>
 </html>
